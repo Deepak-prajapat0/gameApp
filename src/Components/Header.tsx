@@ -1,17 +1,19 @@
 // 534d9419fce745878aae6d7679715451
-import { Box, HStack, List, ListItem } from '@chakra-ui/react'
+import {AiOutlineSearch} from 'react-icons/ai'
+import { HStack, Input, InputGroup, InputLeftElement, Text } from '@chakra-ui/react'
+import ColorModeSwitch from './ColorModeSwitch'
 
 export default function Header() {
-    const list =['Home',"About","Contact"]
-    return (
-        <HStack spacing='24px' p="12px" w="100vw" bg="black" color="white">
-          <List p="6px 0 0 0" display={"flex"} gap={5} >
-             {list.map(link=>
-             <ListItem key={link} p="2px 16px" borderBottom="2px solid black" _hover={{borderBottom:"2px solid white"}} transition={"all .3s ease-in-out"} cursor={"pointer"}>
-                {link}
-            </ListItem>
-            )}
-          </List>
-        </HStack>
-    )
+  return (
+    <HStack spacing='24px' p="2rem" w="100vw" bg="black" color="white" justifyContent="space-between">
+      <Text fontWeight={900} letterSpacing={2} fontSize="xl">GameX</Text>
+      <InputGroup width={"40rem"}  color="black" >
+        <InputLeftElement pointerEvents='none' >
+          <AiOutlineSearch />
+        </InputLeftElement>
+        <Input type='search' placeholder='Search here ...'  bg={"#414141"} border={"none"}  _hover={{ bg: "white", color: "black" }} _focus={{ bg: "white", color: "black" }} borderRadius={"2rem"} />
+      </InputGroup>
+      <ColorModeSwitch/>
+    </HStack>
+  )
 }
