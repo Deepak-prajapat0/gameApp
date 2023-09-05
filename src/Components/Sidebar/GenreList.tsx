@@ -13,7 +13,7 @@ const GenreList = ({ onSelectGenre }: Props) => {
     const length = 15;
     const skeleton = new Array(length).fill(null)
 
-    if (isLoading) return <>{skeleton.map((item, index) => <Skeleton key={index} width={"100%"} height="20px" p={4} />)}</>;
+    if (isLoading) return <>{skeleton.map((s, index) => <Skeleton key={s||index} width={"100%"} height="20px" p={4} />)}</>;
 
     return (
         <List>

@@ -4,10 +4,12 @@ import { HStack, Input, InputGroup, InputLeftElement, Text } from '@chakra-ui/re
 import ColorModeSwitch from './ColorModeSwitch'
 
 interface Props{
-  setQuery:(query:string)=>void
+  onSearch:(query:string)=>void
 }
 
-export default function Header({setQuery}:Props) {
+export default function Header({ onSearch }:Props) {
+
+
   return (
     <HStack spacing='24px' p="2rem" w="100vw" bg="black" color="white" justifyContent="space-between">
       <Text fontWeight={900} letterSpacing={2} fontSize="xl">GameX</Text>
@@ -15,7 +17,7 @@ export default function Header({setQuery}:Props) {
         <InputLeftElement pointerEvents='none' >
           <AiOutlineSearch />
         </InputLeftElement>
-        <Input type='search' onChange={(e) => setQuery(e.target.value)} placeholder='Search here ...'  bg={"#414141"} border={"none"}  _hover={{ bg: "white", color: "black" }} _focus={{ bg: "white", color: "black" }} borderRadius={"2rem"} />
+        <Input type='search' onChange={(e) => onSearch(e.target.value)} placeholder='Search here ...'  bg={"#414141"} border={"none"}  _hover={{ bg: "white", color: "black" }} _focus={{ bg: "white", color: "black" }} borderRadius={"2rem"} />
       </InputGroup>
       <ColorModeSwitch/>
     </HStack>

@@ -1,4 +1,4 @@
-import { Box, Container, Heading, Link, List, ListItem, VStack } from '@chakra-ui/react'
+import { Box, Container, Heading, Link,VStack } from '@chakra-ui/react'
 import GenreList from './GenreList'
 import { Genre } from '../../hooks/useGenre';
 import PlatformList from './PlatformList';
