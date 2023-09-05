@@ -1,4 +1,4 @@
-import { HStack, Heading, Icon, Skeleton, Text, VStack } from '@chakra-ui/react';
+import { HStack, Heading, Icon, Text, VStack } from '@chakra-ui/react';
 import { IconType } from 'react-icons';
 import { BsGlobe } from 'react-icons/bs';
 import { FaWindows, FaPlaystation, FaXbox, FaApple, FaLinux, FaAndroid } from 'react-icons/fa';
@@ -12,7 +12,7 @@ interface Props{
 
 
 export default function PlatformList({onSelectedPlatform}:Props) {
-    const { data, isLoading } = usePlatform();
+    const { data } = usePlatform();
     const iconMap: { [key: string]: IconType } = {
         pc: FaWindows,
         playstation: FaPlaystation,
@@ -25,15 +25,11 @@ export default function PlatformList({onSelectedPlatform}:Props) {
         web: BsGlobe
     }
 
-    const length = 15;
-    const skeleton = new Array(length).fill(null)
-
     return (
         <VStack marginY={1} pt="2" width={"100%"} alignItems="flex-start" >
             <Heading as="h6" py="3">Platforms</Heading>
-            {isLoading && skeleton.map((x, index) => <Skeleton key={x || index} width={"100%"} height="20px" p={4} />)}
             {data.map((platform) => (
-                <HStack key={platform.id} alignItems="center" gap="3px" >
+                <HStack key={platform.id} width="100%" alignItems="center" gap="3px" _hover={{ bg: "#222121" }} >
                     <Icon as={iconMap[platform.slug]} h="2rem" w="2rem" p="1" borderRadius={5} _hover={{bg:"white",color:"black"}} transition={"all .2s"} color='white' />
                     <Text noOfLines={1} onClick={() => onSelectedPlatform(platform)}>{platform.name.split(' ')[0]}</Text>
                 </HStack>

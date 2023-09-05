@@ -16,6 +16,8 @@ export default function GameCard({game}:Props) {
           <Card borderRadius={"1rem"} height={"100%"} _hover={{transform:"scale(1.02)"}} transition={"all .2s ease-in-out"}>
               <CardBody backgroundColor={"#212121"} p="0" color="white" borderRadius={".8rem"}  >
                   <Image
+                     height="10.7rem"
+                     width="100%"
                       src={getCroppedImageUrl(game.background_image)}
                       alt={game.name}    
                       borderRadius={".8rem"}              
