@@ -5,18 +5,22 @@ import GameGrid from '../Components/Games/GameGrid';
 import { Genre } from '../hooks/useGenre';
 import PlatformSelector from '../Components/PlatformSelector';
 import { Platform } from '../hooks/usePlatform';
+import SortSelector from '../Components/SortSelector';
+import { GameQuery } from '../App';
 
 
 interface Props {
   query:string;
   selectedGenre: Genre | null;
+  gameQuery:GameQuery
   selectedPlatform: Platform | null;
   onSelectGenre: (genre: Genre) => void;
-  onSelectedPlatform:(platform:Platform)=>void;
+  onSelectedPlatform:(platform:Platform|null)=>void;
+  onSelectSortOrder:(sortOrder:string)=>void
 }
 
 
-export default function Home({ selectedGenre, selectedPlatform, onSelectedPlatform,query}:Props) {
+export default function Home({ gameQuery, selectedPlatform, onSelectedPlatform, onSelectSortOrder, query }:Props) {
 
   
 
@@ -24,8 +28,9 @@ export default function Home({ selectedGenre, selectedPlatform, onSelectedPlatfo
     <main style={{width:"100%"}}>
         <Heading as='h2' size='3xl' mr={"auto"} >New and Trending</Heading>
       <PlatformSelector selectedPlatform={selectedPlatform} onSelectedPlatform={onSelectedPlatform} />
+      <SortSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={onSelectSortOrder}   />
       <Container pt={6} maxW={"container-lg"} >
-        <GameGrid query={query} selectedPlatform={selectedPlatform} selectedGenre={selectedGenre}/>
+        <GameGrid query={query} gameQuery={gameQuery} />
       </Container>
     </main>
   )

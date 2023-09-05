@@ -4,10 +4,15 @@ import { BsGlobe } from 'react-icons/bs';
 import { FaWindows, FaPlaystation, FaXbox, FaApple, FaLinux, FaAndroid } from 'react-icons/fa';
 import { MdPhoneIphone } from 'react-icons/md';
 import { SiNintendo } from 'react-icons/si';
-import usePlatform from '../../hooks/usePlatform';
+import usePlatform, { Platform } from '../../hooks/usePlatform';
 import getCroppedImageUrl from '../../service/image-url';
 
-export default function PlatformList() {
+interface Props{
+    onSelectedPlatform:(platform:Platform)=>void;
+}
+
+
+export default function PlatformList({onSelectedPlatform}:Props) {
     const { data, isLoading } = usePlatform();
     const iconMap: { [key: string]: IconType } = {
         pc: FaWindows,
@@ -32,7 +37,7 @@ export default function PlatformList() {
             {data.slice(0,8).map((platform) => (
                 <HStack key={platform.id} alignItems="center" gap="5px" p="1">
                     <Icon as={iconMap[platform.slug]} h="2rem" w="2rem" p="1" borderRadius={5} _hover={{bg:"white",color:"black"}} transition={"all .2s"} color='white' />
-                    <Text noOfLines={1}>{platform.name.split(' ')[0]}</Text>
+                    <Text noOfLines={1} onClick={() => onSelectedPlatform(platform)}>{platform.name.split(' ')[0]}</Text>
                 </HStack>
             ))}
         </VStack>

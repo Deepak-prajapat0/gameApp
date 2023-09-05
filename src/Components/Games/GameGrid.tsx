@@ -4,12 +4,12 @@ import useGames, { Game } from '../../hooks/useGames'
 import GameCardSkeleton from './GameCardSkeleton';
 import { Genre } from '../../hooks/useGenre';
 import { Platform } from '../../hooks/usePlatform';
+import { GameQuery } from '../../App';
 
 
 interface Props {
-  query:string;
-  selectedGenre: Genre | null;
-  selectedPlatform:Platform | null
+  gameQuery: GameQuery;
+  query:string
 }
 const getFilteredGames = (query: string, data: Game[]) => {
   if (!query) {
@@ -17,8 +17,8 @@ const getFilteredGames = (query: string, data: Game[]) => {
   }
   return data.filter(x => x.slug.includes(query))
 }
-export default function GameGrid({selectedGenre,selectedPlatform,query}:Props) {
-  const { data, isLoading } = useGames(selectedGenre, selectedPlatform);
+export default function GameGrid({gameQuery,query}:Props) {
+  const { data, isLoading } = useGames(gameQuery);
     const length = 15; // Specify the desired length of the array
     const skeletons = new Array(length).fill(null);
 
