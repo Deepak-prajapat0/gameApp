@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { GameQuery } from '../App';
 
 interface Props{
@@ -6,7 +6,7 @@ interface Props{
     onSelectedPage:(pageNo:number)=>void
 }
 
-export default function Pagination({gameQuery,onSelectedPage}:Props) {
+export default function Pagination({onSelectedPage}:Props) {
     const [count, setCount] = useState(2);
     function updateData() {
         setCount(count + 1)

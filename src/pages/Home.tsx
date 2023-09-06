@@ -7,7 +7,7 @@ import PlatformSelector from '../Components/PlatformSelector';
 import { Platform } from '../hooks/usePlatform';
 import SortSelector from '../Components/SortSelector';
 import { GameQuery } from '../App';
-import Pagination from '../Components/Pagination';
+// import Pagination from '../Components/Pagination';
 import { useEffect, useState } from 'react';
 
 
