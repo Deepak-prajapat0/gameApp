@@ -12,7 +12,7 @@ export default function Header({ onSearch }:Props) {
 
   return (
     <HStack spacing='24px' p="2rem" w="100vw" bg="black" color="white" justifyContent="space-between">
-      <Text fontWeight={900} letterSpacing={2} fontSize="xl">GameX</Text>
+      <Text fontWeight={900} letterSpacing={2} fontSize="xl">FantasyX</Text>
       <InputGroup width={"40rem"}  color="black" >
         <InputLeftElement pointerEvents='none' >
           <AiOutlineSearch />

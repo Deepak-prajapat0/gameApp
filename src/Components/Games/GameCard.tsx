@@ -24,7 +24,7 @@ export default function GameCard({game}:Props) {
                   />
                   <Stack mt="5px" p="15px" spacing='3'>
                      <HStack justifyContent="space-between">
-                          <PlatformIconList platforms={game.parent_platforms.map(x => x.platform)} />
+                          <PlatformIconList platforms={game.parent_platforms?.map(x => x.platform)} />
                           <CriticScore score={game.metacritic} />
                      </HStack>
                       <Heading as="h6" fontSize="22px" >{game.name}</Heading>

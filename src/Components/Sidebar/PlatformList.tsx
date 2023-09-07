@@ -3,7 +3,7 @@ import { IconType } from 'react-icons';
 import { BsGlobe } from 'react-icons/bs';
 import { FaWindows, FaPlaystation, FaXbox, FaApple, FaLinux, FaAndroid } from 'react-icons/fa';
 import { MdPhoneIphone } from 'react-icons/md';
-import { SiNintendo } from 'react-icons/si';
+import { SiAtari, SiCommodore, SiNeovim, SiNintendo, SiSega } from 'react-icons/si';
 import usePlatform, { Platform } from '../../hooks/usePlatform';
 
 interface Props{
@@ -22,7 +22,11 @@ export default function PlatformList({onSelectedPlatform}:Props) {
         linux: FaLinux,
         android: FaAndroid,
         ios: MdPhoneIphone,
-        web: BsGlobe
+        web: BsGlobe,
+        "commodore-amiga": SiCommodore,
+        sega: SiSega,
+        "neo-geo": SiNeovim,
+        atari: SiAtari
     }
 
     return (

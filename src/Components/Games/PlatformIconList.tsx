@@ -7,7 +7,7 @@ import {
     FaAndroid,
 } from "react-icons/fa";
 import { MdPhoneIphone } from 'react-icons/md';
-import { SiNintendo } from 'react-icons/si';
+import { SiAtari, SiCommodore, SiNeovim, SiNintendo, SiSega } from 'react-icons/si';
 import { BsGlobe } from 'react-icons/bs';
 import { HStack, Icon } from "@chakra-ui/react";
 import { IconType } from "react-icons";
@@ -17,7 +17,7 @@ interface Props {
     platforms: Platform[];
 }
 
-const PlatformIconList = ({ platforms }: Props) => {
+const PlatformIconList = ({ platforms=[] }: Props) => {
     const iconMap: { [key: string]: IconType } = {
         pc: FaWindows,
         playstation: FaPlaystation,
@@ -27,7 +27,11 @@ const PlatformIconList = ({ platforms }: Props) => {
         linux: FaLinux,
         android: FaAndroid,
         ios: MdPhoneIphone,
-        web: BsGlobe
+        web: BsGlobe,
+        "commodore-amiga": SiCommodore,
+        sega: SiSega,
+        "neo-geo": SiNeovim,
+        atari: SiAtari
     }
     
 
