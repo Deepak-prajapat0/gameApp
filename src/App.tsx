@@ -2,7 +2,7 @@ import './App.css'
 import Header from './Components/Header'
 import Home from './pages/Home'
 import Aside from './Components/Sidebar/Aside'
-import {  useState } from 'react'
+import { useState } from 'react'
 import { Genre } from './hooks/useGenre'
 import { Platform } from './hooks/usePlatform'
 import { HStack, Show } from '@chakra-ui/react'
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Header onSearch={(query) => setGameQuery({ ...gameQuery, query })} />
+      <Header onSearch={(query) => setGameQuery({ ...gameQuery, query })} selectedGenre={gameQuery.genre} onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
       <HStack style={{display:"flex",flexDirection:"row",alignItems:"flex-start" ,color:"white"}}>
         <Show above='md'>
           <Aside selectedGenre={gameQuery.genre} onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />

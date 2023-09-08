@@ -17,7 +17,7 @@ const GenreList = ({selectedGenre, onSelectGenre }: Props) => {
        <VStack>
             <List>
                 {data.map(genre =>
-                    <HStack key={genre.id} background={selectedGenre === genre ? "#212121" : ""} onClick={() => onSelectGenre(genre)} cursor={"pointer"} borderRadius={5} _hover={{ bg: "#222121" }} >
+                    <HStack key={genre.id} background={selectedGenre === genre ? "#212121" : ""} onClick={() => { onSelectGenre(genre) }} cursor={"pointer"} borderRadius={5} _hover={{ bg: "#222121" }} >
                         <Image height="30px" width="30px" borderRadius={5} objectFit={'cover'} src={getCroppedImageUrl(genre.image_background)}
                             alt={genre.name} />
                         <ListItem p="8px" >{genre.name}</ListItem>

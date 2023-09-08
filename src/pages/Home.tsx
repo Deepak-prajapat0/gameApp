@@ -22,7 +22,7 @@ export default function Home({ gameQuery, selectedPlatform, onSelectedPlatform, 
 
   return (
     <main style={{width:"100%"}}>
-        <Heading as='h2' size='3xl' margin={"0 0 1rem 13px"} >New and Trending</Heading>
+        <Heading as='h2' size='3xl' margin={"0 0 1rem 13px"} >Top picks</Heading>
       <Box pl={4}>
         <PlatformSelector selectedPlatform={selectedPlatform} onSelectedPlatform={onSelectedPlatform} />
         <SortSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={onSelectSortOrder} />
