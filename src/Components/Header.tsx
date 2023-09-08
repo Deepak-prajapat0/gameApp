@@ -1,7 +1,6 @@
 // 534d9419fce745878aae6d7679715451
 import {AiOutlineSearch} from 'react-icons/ai'
 import { HStack, Input, InputGroup, InputLeftElement, Text } from '@chakra-ui/react'
-// import ColorModeSwitch from './ColorModeSwitch'
 
 interface Props{
   onSearch:(query:string)=>void
@@ -19,7 +18,6 @@ export default function Header({ onSearch }:Props) {
         </InputLeftElement>
         <Input type='search' onChange={(e) => onSearch(e.target.value)} placeholder='Search here ...'  bg={"#414141"} border={"none"}  _hover={{ bg: "white", color: "black" }} _focus={{ bg: "white", color: "black" }} borderRadius={"2rem"} />
       </InputGroup>
-      {/* <ColorModeSwitch/> */}
     </HStack>
   )
 }

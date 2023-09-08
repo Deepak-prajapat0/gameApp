@@ -1,10 +1,9 @@
-import { Box, Button, HStack, SimpleGrid, Spinner } from '@chakra-ui/react'
+import { Box, HStack, SimpleGrid, Spinner } from '@chakra-ui/react'
 import GameCard from './GameCard'
 import useGames from '../../hooks/useGames'
 import GameCardSkeleton from './GameCardSkeleton';
 import { GameQuery } from '../../App';
 import React, { useEffect } from 'react';
-// import { useEffect, useState } from 'react';
 
 
 interface Props {
@@ -12,8 +11,8 @@ interface Props {
 }
 
 export default function GameGrid({ gameQuery }: Props) {
-  const { data, isLoading, isFetchingNextPage, fetchNextPage } = useGames(gameQuery);
-  const length = 15; // Specify the desired length of the array
+  const { data, isLoading, fetchNextPage } = useGames(gameQuery);
+  const length = 15;
   const skeletons = new Array(length).fill(null);
 
   const handleScroll = () => {
@@ -26,7 +25,7 @@ export default function GameGrid({ gameQuery }: Props) {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isLoading]);
 
   return (
     <Box>
@@ -34,13 +33,14 @@ export default function GameGrid({ gameQuery }: Props) {
         {isLoading && skeletons.map((s, index) => <GameCardSkeleton key={s || index} />)}
        {data?.pages.map((page,index)=>
         <React.Fragment key={index}>
+          {page.results.length === 0 && <h2>NO games Found</h2>}
           {page.results.map((game, index) =>
             <GameCard key={index} game={game} />
           )}
         </React.Fragment>
        )}
       </SimpleGrid>
-       {isFetchingNextPage && <HStack m={50} p={50} justifyContent="center"> <Spinner mx="auto" size='xl' /></HStack>}
+      <HStack m={50} p={50} justifyContent="center"> <Spinner mx="auto" size='xl' /></HStack>
     </Box>
   )
 }

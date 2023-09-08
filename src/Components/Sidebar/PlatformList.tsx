@@ -1,33 +1,13 @@
 import { HStack, Heading, Icon, Text, VStack } from '@chakra-ui/react';
-import { IconType } from 'react-icons';
-import { BsGlobe } from 'react-icons/bs';
-import { FaWindows, FaPlaystation, FaXbox, FaApple, FaLinux, FaAndroid } from 'react-icons/fa';
-import { MdPhoneIphone } from 'react-icons/md';
-import { SiAtari, SiCommodore, SiNeovim, SiNintendo, SiSega } from 'react-icons/si';
 import usePlatform, { Platform } from '../../hooks/usePlatform';
+import { iconMap } from '../../data/icons';
 
 interface Props{
     onSelectedPlatform:(platform:Platform)=>void;
 }
 
-
 export default function PlatformList({onSelectedPlatform}:Props) {
     const { data } = usePlatform();
-    const iconMap: { [key: string]: IconType } = {
-        pc: FaWindows,
-        playstation: FaPlaystation,
-        xbox: FaXbox,
-        nintendo: SiNintendo,
-        mac: FaApple,
-        linux: FaLinux,
-        android: FaAndroid,
-        ios: MdPhoneIphone,
-        web: BsGlobe,
-        "commodore-amiga": SiCommodore,
-        sega: SiSega,
-        "neo-geo": SiNeovim,
-        atari: SiAtari
-    }
 
     return (
         <VStack marginY={1} pt="2" width={"100%"} alignItems="flex-start" >
