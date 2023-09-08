@@ -21,7 +21,7 @@ interface Props {
 export default function Home({ gameQuery, selectedPlatform, onSelectedPlatform, onSelectSortOrder }:Props) {
 
   return (
-    <main style={{width:"100%"}}>
+    <main style={{width:"100%",paddingTop:"5rem"}}>
         <Heading as='h2' size='3xl' margin={"0 0 1rem 13px"} >Top picks</Heading>
       <Box pl={4}>
         <PlatformSelector selectedPlatform={selectedPlatform} onSelectedPlatform={onSelectedPlatform} />
