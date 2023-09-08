@@ -27,7 +27,7 @@ function App() {
         <Show above='md'>
           <Aside selectedGenre={gameQuery.genre} onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
         </Show>
-        <Home gameQuery={gameQuery} selectedGenre={gameQuery.genre} selectedPlatform={gameQuery.platform} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })} onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} onPageScroll={(pageNo) => setGameQuery({ ...gameQuery, pageNo })} />
+        <Home gameQuery={gameQuery} selectedPlatform={gameQuery.platform} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })} onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} onPageScroll={(pageNo) => setGameQuery({ ...gameQuery, pageNo })} />
       </HStack>
     </div>
   )

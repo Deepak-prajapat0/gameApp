@@ -11,11 +11,11 @@ interface Props {
 const PlatformSelector = ({selectedPlatform,onSelectedPlatform}:Props) => {
     const { data } = usePlatforms();
     return (
-        <Menu>
+        <Menu >
             <MenuButton mr={2} as={Button} rightIcon={<BsChevronDown />}>
                 {selectedPlatform ? selectedPlatform.name : "Platforms"}
             </MenuButton>
-            <MenuList>
+            <MenuList height={"20rem"} overflowY="scroll">
                 <MenuItem onClick={() => onSelectedPlatform(null)}>All</MenuItem>
                 {data.map(platform => <MenuItem key={platform.id} onClick={() => onSelectedPlatform(platform)}>{platform.name}</MenuItem>)}
             </MenuList>

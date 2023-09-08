@@ -9,7 +9,6 @@ import { GameQuery } from '../App';
 
 
 interface Props {
-  selectedGenre: Genre | null;
   gameQuery:GameQuery
   selectedPlatform: Platform | null;
   onSelectGenre: (genre: Genre) => void;

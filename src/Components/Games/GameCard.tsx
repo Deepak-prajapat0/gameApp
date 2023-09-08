@@ -11,7 +11,7 @@ interface Props{
 
 export default function GameCard({game}:Props) {
   return (
-      <Box minHeight={"19rem"} >
+      <Box minHeight={"19rem"} maxWidth="25rem">
           <Card borderRadius={"1rem"} height={"100%"} _hover={{transform:"scale(1.02)"}} transition={"all .2s ease-in-out"}>
               <CardBody backgroundColor={"#212121"} p="0" color="white" borderRadius={".8rem"}  >
                   <Image

@@ -13,7 +13,7 @@ interface Props {
 
 export default function Aside({ selectedGenre, onSelectGenre,onSelectedPlatform }: Props) {
   return (
-    <Container w="14rem" p="3" minHeight="80vh" maxHeight="fit-content">
+    <Container w="16rem" p="3" minHeight="80vh" maxHeight="fit-content">
       <VStack textAlign={"left"}>
         <Box py={3} bg={"purple-200"} w="100%">
           <Link  py={1} w="100%" fontSize={28} fontWeight={600} cursor={"pointer"} _hover={{ color: "darkgray" }} >Home</Link>

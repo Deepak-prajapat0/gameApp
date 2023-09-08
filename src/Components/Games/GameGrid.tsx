@@ -1,9 +1,9 @@
-import { Box, HStack, SimpleGrid, Spinner } from '@chakra-ui/react'
-import GameCard from './GameCard'
-import useGames from '../../hooks/useGames'
+import { Box, HStack, SimpleGrid, Spinner } from '@chakra-ui/react';
+import GameCard from './GameCard';
+import useGames from '../../hooks/useGames';
 import GameCardSkeleton from './GameCardSkeleton';
-import { GameQuery } from '../../App';
 import React, { useEffect } from 'react';
+import { GameQuery } from '../../App';
 
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function GameGrid({ gameQuery }: Props) {
-  const { data, isLoading, fetchNextPage } = useGames(gameQuery);
+  const { data, isLoading,isFetchingNextPage, fetchNextPage } = useGames(gameQuery);
   const length = 15;
   const skeletons = new Array(length).fill(null);
 
@@ -40,7 +40,7 @@ export default function GameGrid({ gameQuery }: Props) {
         </React.Fragment>
        )}
       </SimpleGrid>
-      <HStack m={50} p={50} justifyContent="center"> <Spinner mx="auto" size='xl' /></HStack>
+      <HStack m={50} p={50} justifyContent="center"> {isFetchingNextPage && <Spinner mx="auto" size='xl' />}</HStack>
     </Box>
   )
 }
