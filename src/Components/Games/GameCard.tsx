@@ -1,8 +1,9 @@
-import { Game } from '../../hooks/useGames';
-import { Card, CardBody, Stack, Heading, Box, Image, HStack } from '@chakra-ui/react';
+import { Game } from '../../hooks/useGame';
+import { Card, CardBody, Stack, Box, Image, HStack } from '@chakra-ui/react';
 import getCroppedImageUrl from '../../service/image-url';
 import PlatformIconList from './PlatformIconList';
 import CriticScore from './CriticScore';
+import { Link } from 'react-router-dom';
 
 interface Props{
     game:Game;
@@ -26,7 +27,7 @@ export default function GameCard({game}:Props) {
                           <PlatformIconList platforms={game.parent_platforms?.map(x => x.platform)} />
                           <CriticScore score={game.metacritic} />
                      </HStack>
-                      <Heading as="h6" fontSize="22px" >{game.name}</Heading>
+                      <Link to={'/game/'+game.slug} >{game.name}</Link>
                   </Stack>
               </CardBody>
           </Card>

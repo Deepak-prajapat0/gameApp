@@ -3,15 +3,10 @@ import GameCard from './GameCard';
 import useGames from '../../hooks/useGames';
 import GameCardSkeleton from './GameCardSkeleton';
 import React, { useEffect } from 'react';
-import { GameQuery } from '../../App';
 
 
-interface Props {
-  gameQuery: GameQuery;
-}
-
-export default function GameGrid({ gameQuery }: Props) {
-  const { data, isLoading,isFetchingNextPage, fetchNextPage } = useGames(gameQuery);
+export default function GameGrid() {
+  const { data, isLoading,isFetchingNextPage, fetchNextPage } = useGames();
   const length = 15;
   const skeletons = new Array(length).fill(null);
 
@@ -28,7 +23,7 @@ export default function GameGrid({ gameQuery }: Props) {
   }, [isLoading]);
 
   return (
-    <Box>
+    <Box pt="3">
       <SimpleGrid minChildWidth='15rem' spacing='10px' p="1" py='4' >
         {isLoading && skeletons.map((s, index) => <GameCardSkeleton key={s || index} />)}
        {data?.pages.map((page,index)=>
